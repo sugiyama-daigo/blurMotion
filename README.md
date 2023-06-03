@@ -34,9 +34,9 @@ Specify the content of the animation with class name.
 
 ### ■blur(blrng)
 The set value of the blur is written the below described.
-
+```
 blrng_lowerLimitValue_upperLimitValue_currentValue_direction
-
+```
 | setting | description(value range) | Default Value |
 ----|---- 
 | lowerLimitValue | Lower limit of blur | 0 |
@@ -53,7 +53,7 @@ blrng_lowerLimitValue_upperLimitValue_currentValue_direction
 The set value of the hue is written the below described.
 ```
 blhue_lowerLimitValue_upperLimitValue_currentValue_rangeOfIncAndDec_direction
-
+```
 | setting | description(value range) | Default Value
 ----|---- 
 | lowerLimitValue | Lower limit of hue (1deg - 359deg) | 0deg |
