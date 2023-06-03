@@ -111,10 +111,3 @@ position: absolute
 is set for this element.
 
 Moving an element must be done with respect to its parent element.
-
-
-
-
-
-
-
