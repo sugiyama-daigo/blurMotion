@@ -27,7 +27,7 @@ Set the class name "bm" to the HTML element to be animated.
 Specify the content of the animation with class name.
 
 | animation | class name |
-----|---- 
+|----|----|
 | blur | blrng |
 | hue | blhue |
 | move | blmove |
@@ -39,7 +39,7 @@ blrng_lowerLimitValue_upperLimitValue_currentValue_direction
 ```
 
 | setting | description(value range) | Default Value |
-----|---- 
+|----|----|----|
 | lowerLimitValue | Lower limit of blur | 0 |
 | upperLimitValue | Upper limit of blur | 10 |
 | currentValue | Current value of blur | 0 |
@@ -55,8 +55,8 @@ The set value of the hue is written the below described.
 ```
 blhue_lowerLimitValue_upperLimitValue_currentValue_rangeOfIncAndDec_direction
 ```
-| setting | description(value range) | Default Value
-----|---- 
+| setting | description(value range) | Default Value |
+|----|----|----|
 | lowerLimitValue | Lower limit of hue (1deg - 359deg) | 0deg |
 | upperLimitValue | Upper limit of hue  (1deg - 360deg)| 360deg |
 | currentValue | Current value of hue | 0 |
@@ -79,8 +79,8 @@ The set value of the move is written the below described.
 ```
 blmove_lowerLimitValue_upperLimitValue_duration
 
-| setting | description(value range) | Default Value
-----|---- 
+| setting | description(value range) | Default Value |
+|----|----|----|
 | lowerLimitValue | Lower limit of move (0% - 100%) | 0 |
 | upperLimitValue | Upper limit of move  (0% - 100%)| 100 |
 | duration | Animation Time milli second | 5000 |
