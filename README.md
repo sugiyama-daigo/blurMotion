@@ -37,7 +37,7 @@ The set value of the blur is written the below described.
 
 blrng_lowerLimitValue_upperLimitValue_currentValue_direction
 
-| setting | description(value range) | Default Value
+| setting | description(value range) | Default Value |
 ----|---- 
 | lowerLimitValue | Lower limit of blur | 0 |
 | upperLimitValue | Upper limit of blur | 10 |
