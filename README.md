@@ -34,7 +34,7 @@ Specify the content of the animation with class name.
 
 ### ■blur(blrng)
 The set value of the blur is written the below described.
-```
+
 blrng_lowerLimitValue_upperLimitValue_currentValue_direction
 
 | setting | description(value range) | Default Value
