@@ -55,6 +55,7 @@ The set value of the hue is written the below described.
 ```
 blhue_lowerLimitValue_upperLimitValue_currentValue_rangeOfIncAndDec_direction
 ```
+
 | setting | description(value range) | Default Value |
 |----|----|----|
 | lowerLimitValue | Lower limit of hue (1deg - 359deg) | 0deg |
@@ -78,6 +79,7 @@ You can check the "hue value and color change" of "specified color" from the lin
 The set value of the move is written the below described.
 ```
 blmove_lowerLimitValue_upperLimitValue_duration
+```
 
 | setting | description(value range) | Default Value |
 |----|----|----|
