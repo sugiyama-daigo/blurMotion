@@ -93,7 +93,7 @@ blmove_lowerLimitValue_upperLimitValue_duration
 ```
 
 
-###CSS settings
+### CSS settings
 Set "position:relative" to the "parent element" of the element to which blur is applied.
 
 For example, the following code sets 
