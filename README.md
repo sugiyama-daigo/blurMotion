@@ -78,18 +78,22 @@ You can check the "hue value and color change" of "specified color" from the lin
 ### ■move(blmove)
 The set value of the move is written the below described.
 ```
-blmove_lowerLimitValue_upperLimitValue_duration
+blmove_verticalLowerLimitValue_verticalUpperLimitValue_verticalInitValue_horizontalLowerLimitValue_horizontalUpperLimitValue_horizontalInitValue_duration
 ```
 
 | setting | description(value range) | Default Value |
 |----|----|----|
-| lowerLimitValue | Lower limit of move (0% - 100%) | 0 |
-| upperLimitValue | Upper limit of move  (0% - 100%)| 100 |
+| verticalLowerLimitValue | Lower limit of move | 0 |
+| verticalUpperLimitValue | Upper limit of move | 100 |
+| verticalInitValue | initial position | 0 |
+| horizontalLowerLimitValue | Lower limit of move | 0 |
+| horizontalUpperLimitValue | Upper limit of move | 100 |
+| horizontalInitValue | initial position | 0 |
 | duration | Animation Time milli second | 5000 |
 
 #### Example
 ```
-<p class="bm blmove_10_100_10000">Animation Element</p>
+<p class="bm blmove_0_100_90_0_100_90_10000">Animation Element</p>
 ```
 
 
