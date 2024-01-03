@@ -1,4 +1,6 @@
 /*
+Blur Motion JS 
+Version 1.1
 Copyright (c) 2023 Daigo Sugiyama
 Released under the MIT license
 https://opensource.org/licenses/mit-license.php
@@ -6,7 +8,7 @@ https://opensource.org/licenses/mit-license.php
 
 const BLUR_RANGE_CHECK_REGEXP = /^blrng\_([0-9]+)\_([0-9]+)\_([0-9]+)\_(0|1)$/;
 const HUE_RANGE_CHECK_REGEXP = /^blhue\_([0-9]+)\_([0-9]+)\_([0-9]+)\_([0-9]+)\_(0|1)$/;
-const MOVE_RANGE_CHECK_REGEXP = /^blmove\_([0-9]+)\_([0-9]+)\_([0-9]+)$/;
+const MOVE_RANGE_CHECK_REGEXP = /^blmove\_(-?[0-9]+)\_(-?[0-9]+)\_(-?[0-9]+)\_(-?[0-9]+)\_(-?[0-9]+)\_(-?[0-9]+)\_(-?[0-9]+)$/;
 
 let blurElms = [];
 let isError = false;
@@ -98,16 +100,36 @@ const initBlurMotion = () => {
 
                 if (className.match(MOVE_RANGE_CHECK_REGEXP) !== null && !isError) {
                     const values = className.split('_');
-                    const blmoveMin = parseInt(values[1]);
-                    const blmoveMax = parseInt(values[2]);
-                    const blmoveDur = parseInt(values[3]);
+                    const blmoveVmin = parseInt(values[1]);
+                    const blmoveVmax = parseInt(values[2]);
+                    const blmoveVcurrent = parseInt(values[3]);
+                    const blmoveHmin = parseInt(values[4]);
+                    const blmoveHmax = parseInt(values[5]);
+                    const blmoveHcurrent = parseInt(values[6]);
+                    const blmoveDur = parseInt(values[7]);
 
-                    if (isError = checkMinAndMaxValue(blmoveMin, blmoveMax)) {
+                    if (isError = checkMinAndMaxValue(blmoveVmin, blmoveVmax)) {
                         console.log('move value error: lower or upper limits are incorrect');
                     }
 
-                    elm.blmoveMin = blmoveMin;
-                    elm.blmoveMax = blmoveMax;
+                    if (!isError) {
+                        if (isError = checkCurrentValue(blmoveVmin, blmoveVcurrent, blmoveVmax)) {
+                            console.log('move value error: current vertical value are incorrect');
+                        }
+                    }
+
+                    if (!isError) {
+                        if (isError = checkCurrentValue(blmoveHmin, blmoveHcurrent, blmoveHmax)) {
+                            console.log('move value error: current horizontal value are incorrect');
+                        }
+                    }
+
+                    elm.blmoveVmin = blmoveVmin;
+                    elm.blmoveVmax = blmoveVmax;
+                    $(elm).css('top', `${blmoveVcurrent}%`);
+                    elm.blmoveHmin = blmoveHmin;
+                    elm.blmoveHmax = blmoveHmax;
+                    $(elm).css('left', `${blmoveHcurrent}%`);
                     elm.blmoveDur = blmoveDur;
                 }
             }
@@ -160,13 +182,6 @@ const blurAndHueAnim = () => {
 }
 
 /**
- * start move animation
- */
-const startMoveAnim = () => {
-    moveAnim();
-}
-
-/**
  * execute move animation
  */
 const moveAnim = () => {
@@ -180,8 +195,8 @@ const moveAnim = () => {
         minVal = 0;
         maxVal = 0;
         maxValue = elm.blmoveMax - elm.blmoveMin;
-        top = Math.floor((Math.random() * (elm.blmoveMax - elm.blmoveMin)) + elm.blmoveMin);
-        left = Math.floor((Math.random() * (elm.blmoveMax - elm.blmoveMin)) + elm.blmoveMin);
+        top = Math.floor((Math.random() * (elm.blmoveVmax - elm.blmoveVmin)) + elm.blmoveVmin);
+        left = Math.floor((Math.random() * (elm.blmoveHmax - elm.blmoveHmin)) + elm.blmoveHmin);
         $(elm).animate({ top: `${top}%`, left: `${left}%` }, elm.blmoveDur, 'linear', () => { moveAnim(elm) });
     })
 }
@@ -194,6 +209,21 @@ const moveAnim = () => {
  */
 const checkMinAndMaxValue = (minVal, maxVal) => {
     return minVal > maxVal ? true : false;
+}
+
+/**
+ * check current value
+ * @param minVal min value
+ * @param currentVal current value
+ * @param maxVal max value
+ * @return check result
+ */
+const checkCurrentValue = (minVal, currentVal, maxVal) => {
+    console.log(`minVal=${minVal}`);
+    console.log(`currentVal=${currentVal}`);
+    console.log(`maxVal=${maxVal}`);
+    console.log(`minVal <= currentVal && currentVal <= maxVal=${minVal <= currentVal && currentVal <= maxVal}`);
+    return !(minVal <= currentVal && currentVal <= maxVal);
 }
 
 /**
