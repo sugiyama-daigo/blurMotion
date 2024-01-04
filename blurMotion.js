@@ -219,10 +219,6 @@ const checkMinAndMaxValue = (minVal, maxVal) => {
  * @return check result
  */
 const checkCurrentValue = (minVal, currentVal, maxVal) => {
-    console.log(`minVal=${minVal}`);
-    console.log(`currentVal=${currentVal}`);
-    console.log(`maxVal=${maxVal}`);
-    console.log(`minVal <= currentVal && currentVal <= maxVal=${minVal <= currentVal && currentVal <= maxVal}`);
     return !(minVal <= currentVal && currentVal <= maxVal);
 }
 
